@@ -153,6 +153,7 @@ describe('PATCH /todos/:id', () => {
         var modified = res.body.todo;
         expect(modified.text).toBe(todo.text);
         expect(modified.completed).toBe(true);
+        expect(modified.completedAt).toBeGreaterThan(0);
         expect(typeof modified.completedAt).toBe('number');
       })
       .end(done);
